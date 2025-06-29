@@ -7,7 +7,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.light .side-panel,
+.light .start-screen,
+.light .app-body {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .side-panel,
+.dark .start-screen,
+.dark .app-body {
+  background-color: #121212;
+  color: #fff;
+}
+
+.start-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.start-container {
+  padding: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.start-button {
+  font-size: 24px;
+  padding: 14px 32px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976d2;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.start-button:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+
+.MuiPaper-root {
+  background-color: inherit !important;
+  color: inherit !important;
 }
