@@ -89,29 +89,32 @@ const App = () => {
   }
 
   
-  return (
-    <>
-      {/* Header stays outside mode class so it is unaffected */}
-      <Header mode={mode} setMode={setMode} />
+ // ... (rest of your App.js code) ...
 
-      {/* Apply mode only to the app-body */}
-      <div className={`app-body ${mode}`} style={{ display: 'flex' }}>
-        <div className={`side-panel ${mode}`}>
-          <VehicleDrawer
-            filters={filters}
-            setFilters={setFilters}
-            vehicles={filteredVehicles}
-            areaQuery={areaQuery}
-            setAreaQuery={setAreaQuery}
-            handleAreaSearch={handleAreaSearch}
-          />
-        </div>
-        <div style={{ flex: 1 }}>
-          <VehicleMap vehicles={filteredVehicles} mode={mode} /> {/* Pass mode prop here */}
-        </div>
+ return (
+  <>
+    {/* Header stays outside mode class so it is unaffected */}
+    <Header mode={mode} setMode={setMode} />
+
+    {/* Apply mode only to the app-body */}
+    <div className={`app-body ${mode}`} style={{ display: 'flex' }}>
+      <div className={`side-panel ${mode}`}>
+        <VehicleDrawer
+          filters={filters}
+          setFilters={setFilters}
+          vehicles={filteredVehicles}
+          areaQuery={areaQuery}
+          setAreaQuery={setAreaQuery}
+          handleAreaSearch={handleAreaSearch}
+        />
       </div>
-    </>
-  );
+      <div style={{ flex: 1 }}>
+        {/* IMPORTANT: Pass the 'mode' prop to VehicleMap */}
+        <VehicleMap vehicles={filteredVehicles} mode={mode} />
+      </div>
+    </div>
+  </>
+);
 };
 
 export default App;

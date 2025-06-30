@@ -15,20 +15,21 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-function VehicleMap({ vehicles, mode }) { // Ensure mode is still accepted as a prop
+// IMPORTANT: Ensure VehicleMap accepts 'mode' as a prop
+function VehicleMap({ vehicles, mode }) {
   const lightMapUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
-  // Use the environment variable for the API key
-  // This variable will be set in the AWS Amplify Console
+  // Access the API key from environment variables
+  // This variable must be set in your AWS Amplify Console (as discussed before)
   const STADIA_API_KEY = process.env.REACT_APP_STADIA_API_KEY;
 
-  // Construct the dark map URL with the API key
+  // Construct the dark map URL using the API key
   const darkMapUrl = `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${STADIA_API_KEY}`;
 
 
   return (
     <MapContainer center={[12.97, 77.59]} zoom={13} style={{ height: '90vh', flex: 1 }}>
-      {/* Conditionally apply the map URL based on mode */}
+      {/* Conditionally render TileLayer based on the 'mode' prop */}
       <TileLayer url={mode === 'dark' ? darkMapUrl : lightMapUrl} />
       {vehicles.map(v => (
         <Marker
