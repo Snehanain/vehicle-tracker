@@ -21,6 +21,26 @@ body {
   color: #fff;
 }
 
+/* Dark mode specific styles for Material-UI components within side-panel */
+.dark .side-panel .MuiInputBase-input, /* Text input */
+.dark .side-panel .MuiInputLabel-root, /* Label for text input */
+.dark .side-panel .MuiFormLabel-root, /* Form label for radio buttons */
+.dark .side-panel .MuiRadio-root, /* Radio button icon */
+.dark .side-panel .MuiTypography-root, /* Typography for titles and text in drawer */
+.dark .side-panel .MuiPaper-root /* Paper component for vehicle list items */
+{
+  color: #fff !important; /* Ensure text color is white */
+}
+
+.dark .side-panel .MuiOutlinedInput-notchedOutline {
+  border-color: #bbbbbb !important; /* Lighter border for text fields */
+}
+
+.dark .side-panel .MuiPaper-root {
+  background-color: #2c2c2c !important; /* Darker background for paper elements */
+}
+
+
 .start-screen {
   display: flex;
   justify-content: center;
@@ -52,6 +72,24 @@ body {
   transform: scale(1.05);
 }
 
+/* The specific rule for the dropdown menu */
+/* Ensure the menu paper has a solid background and appropriate text color */
+.MuiMenu-paper {
+  /* Default for light mode */
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Override for dark mode */
+.dark .MuiMenu-paper {
+  background-color: #424242 !important; /* A slightly lighter dark for the menu */
+  color: #fff !important;
+}
+
+/* The general rule for MuiPaper-root should be more specific or applied carefully.
+   Let's keep it as is, but the .MuiMenu-paper rules above are more specific and will take precedence for the menu.
+   This rule is still needed for other MuiPaper-root instances, like the vehicle list items in the drawer.
+*/
 .MuiPaper-root {
   background-color: inherit !important;
   color: inherit !important;

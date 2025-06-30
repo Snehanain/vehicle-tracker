@@ -5,6 +5,8 @@ import VehicleDrawer from './VehicleDrawer';
 import axios from 'axios';
 import './App.css';
 
+
+
 const App = () => {
   const [vehicles, setVehicles] = useState([]);
   const [filteredVehicles, setFilteredVehicles] = useState([]);
@@ -86,6 +88,7 @@ const App = () => {
     );
   }
 
+  
   return (
     <>
       {/* Header stays outside mode class so it is unaffected */}
@@ -104,7 +107,7 @@ const App = () => {
           />
         </div>
         <div style={{ flex: 1 }}>
-          <VehicleMap vehicles={filteredVehicles} />
+          <VehicleMap vehicles={filteredVehicles} mode={mode} /> {/* Pass mode prop here */}
         </div>
       </div>
     </>

@@ -15,10 +15,13 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-function VehicleMap({ vehicles }) {
+function VehicleMap({ vehicles, mode }) { // Accept mode as a prop
+  const lightMapUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  const darkMapUrl = "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"; // Dark mode tile layer URL from the article
+
   return (
     <MapContainer center={[12.97, 77.59]} zoom={13} style={{ height: '90vh', flex: 1 }}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer url={mode === 'dark' ? darkMapUrl : lightMapUrl} /> {/* Conditionally apply URL */}
       {vehicles.map(v => (
         <Marker
           key={v["vehicle-id"]}
